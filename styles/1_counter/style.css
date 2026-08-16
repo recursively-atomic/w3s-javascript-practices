@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --primary-accent: indianred;
+    --secondary-accent: firebrick;
+    --tertiary-accent: olive;
+    --primary: antiquewhite;
+    --secondary: tan;
+    --tertiary: peru;
+}
+
+body {
+    font-family: "Roboto Mono", monospace;
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: var(--primary);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header h2,
+footer h2 {
+    background-color: var(--secondary-accent);
+    padding: 20px;
+    margin: 0px;
+    text-align: center;
+    color: var(--secondary);
+}
+
+header {
+    margin-bottom: auto;
+}
+
+footer {
+    margin-top: auto;
+}
+
+#message {
+    white-space: nowrap;
+    background-color: var(--tertiary-accent);
+    padding: 10px;
+    border-radius: 10px;
+    width: min-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#displays {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+main {
+    background-color: var(--secondary);
+    padding: 40px;
+    border-radius: 20px;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#count {
+    margin: 0px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: firebrick;
+    max-width: 60px;
+    border-radius: 20px;
+    color: var(--tertiary);
+}
+
+button h2 {
+    margin: 0px;
+    padding: 0px;
+    font-weight: bolder;
+}
+
+button {
+    background-color: var(--tertiary);
+    padding: 20px;
+    border: 5px solid var(--tertiary);
+    color: var(--primary);
+    min-width: 70px;
+    border-radius: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: var(--primary);
+    color: var(--tertiary);
+}
+
+button:disabled,
+button:hover:disabled {
+    border: 5px solid var(--secondary-accent);
+    background-color: var(--primary-accent);
+    color: var(--secondary-accent);
+}
+
+.tooltip {
+    width: min-content;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    text-wrap: nowrap;
+    opacity: 0.5;
+}
+
+button:hover .tooltip {
+    visibility: visible;
+}

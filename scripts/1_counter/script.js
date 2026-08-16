@@ -2,24 +2,27 @@ const countDisplay = document.getElementById('count');
 const messageDisplay = document.getElementById('message');
 const saveButton = document.getElementById('save');
 const loadButton = document.getElementById('load');
+const clearButton = document.getElementById('clear');
 
 countDisplay.innerText = 0;
-localStorage.clear();
 
 function updateCount(value) {
     countDisplay.innerText = value;;
 }
 
 function updateMessage(button, string) {
-    messageDisplay.style.display = 'block';
-    messageDisplay.innerText = string;
+    const updatedMessage = messageDisplay.cloneNode(true);
+    updatedMessage.style.display = 'block';
+    updatedMessage.innerText = string;
 
+    document.getElementById('displays').append(updatedMessage);
     button.disabled = true;
 
     setTimeout(() => {
-        messageDisplay.style.display = 'none';
-        messageDisplay.innerText = '';
+        updatedMessage.style.display = 'none';
+        updatedMessage.innerText = '';
 
+        document.getElementById('displays').removeChild(updatedMessage);
         button.disabled = false;
     }, 1000);
 }
@@ -50,6 +53,16 @@ function saveCount() {
 function loadCount() {
     const previousValue = localStorage.getItem('count');
 
-    updateCount(previousValue);
-    updateMessage(loadButton, `Count loaded to ${previousValue}!`);
+    if (previousValue !== null) {
+        updateCount(previousValue);
+        updateMessage(loadButton, `Count loaded to ${previousValue}!`);
+    } else {
+        updateMessage(loadButton, 'There is no value saved to load!');
+    }
+}
+
+function clearCount() {
+    localStorage.clear();
+
+    updateMessage(clearButton, 'Erased saved count!');
 }
