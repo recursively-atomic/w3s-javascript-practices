@@ -7,19 +7,19 @@
     <meta name="date-completed" content="###">
     <meta charset="UTF-8">
 
-    <script src="../../scripts/1_counter/script.js" defer></script>
+    <script src="../../scripts/2_event-listener/script.js" defer></script>
 
-    <link rel="stylesheet" href="../../styles/1_counter/style.css">
-    <title> Exercise 1 (Counter) </title>
+    <link rel="stylesheet" href="../../styles/2_event-listener/style.css">
+    <title> Exercise 2 (Event Listener) </title>
 </head>
 
 <body>
     <header>
-        <h2> Counter Exercise </h2>
+        <h2> Event Listener Exercise </h2>
 
         <nav>
-            <li><a class="active"> Exercise 1 </a></li>
-            <li><a href="../2_event-listener/index.html"> Exercise 2 </a></li>
+            <li><a href="../1_counter/index.html"> Exercise 1 </a></li>
+            <li><a class="active"> Exercise 2 </a></li>
             <li><a> Exercise 3 </a></li>
             <li><a> Exercise 4 </a></li>
             <li><a> Exercise 5 </a></li>
@@ -37,32 +37,32 @@
         </div>
 
         <div id="buttons">
-            <button onclick="increaseCount()">
+            <button id="increase">
                 <h2> + </h2>
                 <span class="tooltip"> Adds 1 to the count. </span>
             </button>
 
-            <button onclick="decreaseCount()">
+            <button id="decrease">
                 <h2> - </h2>
                 <span class="tooltip"> Subtracts 1 to the count. </span>
             </button>
 
-            <button onclick="resetCount()">
+            <button id="reset">
                 <h2> Reset </h2>
                 <span class="tooltip"> Resets the count to 0. </span>
             </button>
 
-            <button id="save" onclick="saveCount()">
+            <button id="save">
                 <h2> Save </h2>
                 <span class="tooltip"> Saves the count to be loaded later. </span>
             </button>
 
-            <button id="load" onclick="loadCount()">
+            <button id="load">
                 <h2> Load </h2>
                 <span class="tooltip"> Loads the saved count. </span>
             </button>
 
-            <button id="clear" onclick="clearCount()">
+            <button id="clear">
                 <h2> Clear </h2>
                 <span class="tooltip"> Clears the loaded count. </span>
             </button>

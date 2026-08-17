@@ -1,0 +1,5 @@
+@import url('../1_counter/style.css');
+
+nav:not(:has(a:hover)) span {
+    transform: translateX(calc(116px + 20px)) !important;
+}

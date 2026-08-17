@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    /* 1 */
+    --primary: antiquewhite;
+    /* 2 */
+    --secondary: tan;
+    /* 3 */
+    --tertiary: peru;
+    /* 4 */
+    --primary-accent: indianred;
+    /* 5 */
+    --secondary-accent: firebrick;
+    /* 6 */
+    --tertiary-accent: olive;
+    /* 7 */
+    --detail: rgb(28, 22, 18);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Roboto Mono", monospace;
+    background-color: var(--primary);
+    user-select: none;
+}
+
+header h2,
+footer h2 {
+    margin: 0px;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--secondary-accent);
+    box-shadow: 0px 0px 20px rgb(from var(--detail)r g b / 0.5);
+    color: var(--secondary);
+}
+
+header {
+    margin-bottom: auto;
+}
+
+nav {
+    display: flex;
+    position: absolute;
+    flex-direction: row;
+    list-style: none;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 20px 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    border: 20px solid var(--primary-accent);
+    box-shadow: 0px 0px 10px rgb(from var(--detail)r g b / 0.5);
+    border-radius: 60px;
+
+    &:has(a:hover) a.active:not(:hover) {
+        font-weight: normal;
+        color: var(--secondary-accent);
+    }
+    
+    &:has(li:nth-child(1):hover) span {
+        transform: translateX(0px);
+    }
+
+    &:has(li:nth-child(2):hover) span {
+        transform: translateX(calc(116px + 20px));
+    }
+
+    &:has(li:nth-child(3):hover) span {
+        transform: translateX(calc((116px + 20px)* 2));
+    }
+
+    &:has(li:nth-child(4):hover) span {
+        transform: translateX(calc((116px + 20px)* 3));
+    }
+
+    &:has(li:nth-child(5):hover) span {
+        transform: translateX(calc((116px + 20px)* 4));
+    }
+
+    & a {
+        position: relative;
+        z-index: 1;
+        border-radius: 20px;
+        padding: 10px;
+        text-decoration: none;
+        color: var(--secondary-accent);
+        transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    & a.active {
+        font-weight: bolder;
+        color: var(--primary);
+        cursor: not-allowed;
+    }
+
+    & a:hover,
+    & a:focus {
+        font-weight: bolder;
+        color: var(--primary);
+    }
+
+    & > span {
+        bottom: 10px;
+        left: 10px;
+        position: absolute;
+        z-index: 0;
+        border-radius: 20px;
+        height: calc(100% - 40px);
+        padding: 10px;
+        width: 115px;
+        background-color: var(--secondary-accent);
+        box-shadow: 0px 0px 10px rgb(from var(--detail)r g b / 0.25);
+        transition: transform 0.5s ease-in-out;
+    }
+}
+
+footer {
+    margin-top: auto;
+}

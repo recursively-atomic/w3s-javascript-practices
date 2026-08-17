@@ -1,29 +1,36 @@
 const countDisplay = document.getElementById('count');
-const messageDisplay = document.getElementById('message');
+const messageTemplate = document.querySelector('.message');
 const saveButton = document.getElementById('save');
 const loadButton = document.getElementById('load');
 const clearButton = document.getElementById('clear');
 
-countDisplay.innerText = 0;
+document.addEventListener('DOMContentLoaded', () => {
+    countDisplay.innerText = 0;
+    messageTemplate.style.display = 'none';
+}, { once: true });
 
 function updateCount(value) {
-    countDisplay.innerText = value;;
+    countDisplay.innerText = value;
 }
 
 function updateMessage(button, string) {
-    const updatedMessage = messageDisplay.cloneNode(true);
-    updatedMessage.style.display = 'block';
-    updatedMessage.innerText = string;
+    const messagesContainer = document.getElementById('messages');
+    const updatedMessage = messageTemplate.cloneNode(true);
 
-    document.getElementById('displays').append(updatedMessage);
+    updatedMessage.innerText = string;
+    messagesContainer.appendChild(updatedMessage);
+    updatedMessage.style.display = 'block';
     button.disabled = true;
+    requestAnimationFrame(() => { updatedMessage.classList.add('show'); });
 
     setTimeout(() => {
-        updatedMessage.style.display = 'none';
-        updatedMessage.innerText = '';
+        updatedMessage.classList.remove('show');
 
-        document.getElementById('displays').removeChild(updatedMessage);
-        button.disabled = false;
+        updatedMessage.addEventListener('transitionend', () => {
+            messagesContainer.removeChild(updatedMessage);
+            updatedMessage.style.display = 'none';
+            button.disabled = false;
+        }, { once: true });
     }, 1000);
 }
 
