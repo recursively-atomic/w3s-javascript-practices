@@ -52,13 +52,13 @@ function resetCount() {
 
 function saveCount() {
     const currentValue = parseInt(countDisplay.innerText);
-    localStorage.setItem('count', currentValue);
+    localStorage.setItem('count-onclick', currentValue);
 
     updateMessage(saveButton, `Count saved to ${currentValue}!`);
 }
 
 function loadCount() {
-    const previousValue = localStorage.getItem('count');
+    const previousValue = localStorage.getItem('count-onclick');
 
     if (previousValue !== null) {
         updateCount(previousValue);
@@ -69,7 +69,6 @@ function loadCount() {
 }
 
 function clearCount() {
-    localStorage.clear();
-
+    localStorage.removeItem('count-onclick');
     updateMessage(clearButton, 'Erased saved count!');
 }
